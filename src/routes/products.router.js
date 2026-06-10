@@ -3,7 +3,7 @@ import ProductManager from '../managers/ProductManager.js';
 
 const router = Router();
 
-// Inicialización limpia: El manager ahora calcula su propia ruta de forma interna e infalible
+
 const productManager = new ProductManager();
 
 router.get('/', async (req, res) => {
