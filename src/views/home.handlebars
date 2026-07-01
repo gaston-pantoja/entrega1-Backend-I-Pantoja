@@ -1,0 +1,13 @@
+<h2>Catálogo de Productos Estático (Render HTTP)</h2>
+<div class="grid">
+    {{#each products}}
+        <div class="card">
+            <h3>{{this.title}}</h3>
+            <p>{{this.description}}</p>
+            <p><strong>Código:</strong> {{this.code}}</p>
+            <p><strong>Categoría:</strong> {{this.category}}</p>
+            <p class="price">${{{this.price}}}</p>
+            <p><small>Stock disponible: {{this.stock}} unidades</small></p>
+        </div>
+    {{/each}}
+</div>

@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "id": "f9abd3c6-ddf7-450d-8cf6-ace15dd1d10a",
+    "title": "Controlador Biotecnológico Alpha",
+    "description": "Módulo de automatización industrial para sistemas de circuito cerrado.",
+    "code": "BIO-ALPHA-001",
+    "price": 1450,
+    "stock": 25,
+    "category": "biotech",
+    "status": true,
+    "thumbnails": []
+  }
+]

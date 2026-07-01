@@ -1,0 +1,29 @@
+<h2>Monitoreo de Productos en Tiempo Real (WebSockets Activo)</h2>
+
+<div id="productsContainer" class="grid">
+    </div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    const socket = io();
+    const container = document.getElementById('productsContainer');
+
+    // Escuchamos el evento masivo que configuramos en el Paso 3
+    socket.on('updateProducts', (products) => {
+        container.innerHTML = ''; // Limpieza de pantalla instantánea
+        
+        products.forEach(p => {
+            container.innerHTML += `
+                <div class="card">
+                    <h3>${p.title}</h3>
+                    <p>${p.description}</p>
+                    <p><strong>Código:</strong> ${p.code}</p>
+                    <p><strong>Categoría:</strong> ${p.category}</p>
+                    <p class="price">$${p.price}</p>
+                    <p><small>Stock disponible: ${p.stock} unidades</small></p>
+                    <p><small style="color: #666;">ID: ${p.id}</small></p>
+                </div>
+            `;
+        });
+    });
+</script>
