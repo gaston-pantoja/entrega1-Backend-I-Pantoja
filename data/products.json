@@ -9,5 +9,16 @@
     "category": "biotech",
     "status": true,
     "thumbnails": []
+  },
+  {
+    "id": "d1a208ca-2309-44b1-89dd-87523220d882",
+    "title": "Controlador Biotecnológico Alpha MODIFICADO",
+    "description": "Módulo de automatización industrial para sistemas de circuito cerrado.",
+    "code": "BIO-ALPHA-001",
+    "price": 1600,
+    "stock": 25,
+    "category": "biotech",
+    "status": true,
+    "thumbnails": []
   }
 ]

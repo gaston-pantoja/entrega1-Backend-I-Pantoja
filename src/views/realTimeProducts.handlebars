@@ -8,9 +8,9 @@
     const socket = io();
     const container = document.getElementById('productsContainer');
 
-    // Escuchamos el evento masivo que configuramos en el Paso 3
+    
     socket.on('updateProducts', (products) => {
-        container.innerHTML = ''; // Limpieza de pantalla instantánea
+        container.innerHTML = ''; 
         
         products.forEach(p => {
             container.innerHTML += `

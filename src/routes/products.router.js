@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename);
 const router = Router();
 
 
-const productManager = new ProductManager(path.join(__dirname, '../data/products.json'));
+const productManager = new ProductManager(path.join(__dirname, '../../data/products.json'));
 
 router.get('/', async (req, res) => {
     try {
