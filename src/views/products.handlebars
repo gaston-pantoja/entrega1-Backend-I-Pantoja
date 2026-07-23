@@ -1,0 +1,59 @@
+<h1>Catálogo de Productos</h1>
+
+<div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 20px;">
+  {{#each payload}}
+    <div style="border: 1px solid #ccc; padding: 15px; border-radius: 8px; width: 250px;">
+      <h3>{{this.title}}</h3>
+      <p>{{this.description}}</p>
+      <p><strong>Categoría:</strong> {{this.category}}</p>
+      <p><strong>Precio:</strong> ${{this.price}}</p>
+      <p><strong>Stock:</strong> {{this.stock}}</p>
+
+      
+      <button 
+        onclick="addToCart('{{this._id}}')" 
+        style="background-color: #007bff; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; margin-top: 10px; width: 100%;">
+        Agregar al Carrito
+      </button>
+    </div>
+  {{/each}}
+</div>
+
+<hr />
+
+
+<div style="display: flex; align-items: center; gap: 15px;">
+  {{#if hasPrevPage}}
+    <a href="{{prevLink}}" style="text-decoration: none; font-weight: bold;">« Anterior</a>
+  {{/if}}
+
+  <span>Página <strong>{{page}}</strong> de <strong>{{totalPages}}</strong></span>
+
+  {{#if hasNextPage}}
+    <a href="{{nextLink}}" style="text-decoration: none; font-weight: bold;">Siguiente »</a>
+  {{/if}}
+</div>
+
+
+<script>
+  
+  const cartId = "6a626d1e53b30b1473244ef0";
+
+  async function addToCart(productId) {
+    try {
+      const response = await fetch(`/api/carts/${cartId}/product/${productId}`, {
+        method: 'POST'
+      });
+      const data = await response.json();
+
+      if (data.status === 'success') {
+        alert('✅ Producto agregado al carrito correctamente');
+      } else {
+        alert('❌ Error: ' + data.message);
+      }
+    } catch (error) {
+      console.error('[FRONTEND ERROR] Error al agregar al carrito:', error);
+      alert('❌ Error de conexión al agregar el producto');
+    }
+  }
+</script>
